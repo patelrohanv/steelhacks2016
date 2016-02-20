@@ -43,15 +43,18 @@ class MyListener(StreamListener):
         self.outfile = "%s/stream_%s.json" % (data_dir, query_fname) 
 
  
-    def on_data(self, data): 
-        try: 
-            with open(self.outfile, 'a') as f: 
-                f.write(data) 
-                print(data) 
+    def on_data(self, data):
+        #Converts json to a python dict
+        result = json.loads(data)
+        try:
+            with open(self.outfile, 'a') as f:
+                #Searches prints to file only if it has a city in its json data
+                f.write(str(result["place"]["full_name"])+"\n")
+                print(str(result["place"]["full_name"])+"\n")
                 return True 
         except BaseException as e: 
             print("Error on_data: %s" % str(e)) 
-            time.sleep(5) 
+            ##time.sleep(5)
         return True 
 
 
