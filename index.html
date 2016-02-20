@@ -4,17 +4,30 @@
 	"Cough cough" Hello World
 </title>
 <head>
+
 	<link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.3/leaflet.css" />
 	<script src="http://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.3/leaflet.js"></script>
 	<script src="http://code.jquery.com/jquery-2.1.0.min.js"></script>
 	<style>
+		html, body {
+    		height: 100%;
+    		width: 100%
+		}
 		#map {
-		    height: 600px;
+
+		    height: 70%
+
+		}
+		#live{
+			height: 30%;
+			width: 100%;
+
 		}
 	</style>
 </head>
 <body>
-	<div id="map"></div>
+	</div>
+	<div id="map">		
 		<script>
 		// Load the tile images from OpenStreetMap
 		var mytiles = L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
@@ -44,6 +57,14 @@
 		// Add the tiles to the map, and initialise the view in the middle of Europe
 		map.addLayer(mytiles).setView([50.5, 5.0], 5);
 		</script>
+		</div>
+
+		<div id="live">
+
+             <a class="twitter-timeline"  href="https://twitter.com/search?q=%23sick%20%23flu%20%23cold" data-widget-id="701074847703683072">Tweets about #sick #flu #cold</a>
+            <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+        </div>
+          
 
 </body>
 </html>

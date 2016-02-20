@@ -1,8 +1,8 @@
-import tweepy
 from tweepy import OAuthHandler
 from tweepy import Cursor
 import json
-
+from geopy.geocoders import Nominatim
+'''
 consumer_key = 'FKO8HPqgt7rJ0EYxQ5pGNYnOM'
 consumer_secret = 'Nhv0BOtTvEub1RD8LA5Azk3uZW8qn5PCgpnyD2BnYkfQ0m5mGr'
 access_token = '1979407176-HJlgun5ty2DHwkV7tG6ErQuMNIAHsp66Q6cR5sl'
@@ -13,10 +13,13 @@ auth.set_access_token(access_token, access_secret)
  
 api = tweepy.API(auth)
 
-'''
-for status in tweepy.Cursor(api.home_timeline).items(10):
-    # Process a single status
-    print(status.text) 
-'''
 for tweet in tweepy.Cursor(api.search, q="#sick", count=15, result_type="recent", include_entities=True, lang="en").items():
 	print (json.dumps(tweet))
+'''
+
+
+geolocator = Nominatim()
+cities = ["Pittsburgh", "Princeton", "Toronto"]
+for c in cities:
+	location = geolocator.geocode(c)
+	print((location.latitude, location.longitude))
