@@ -1,4 +1,5 @@
 import tweepy
+from tweepy import OAuthHandler
 import json
 
 
@@ -14,6 +15,21 @@ api = tweepy.API(auth)
 rate_limit = api.rate_limit_status();
 user = api.get_user('guccimanesy')
 
-print user.screen_name
+out_file = open("testFILE.json","w")
 
+
+def process_or_store(tweet):
+    json.dump(tweet,out_file, indent=4)
+
+#print user.screen_name
 print(json.dumps(rate_limit, indent = 4))
+
+#for status in tweepy.Cursor(api.home_timeline).items(10):
+#Process a single status
+#    print(status.text)
+
+for status in tweepy.Cursor(api.home_timeline).items(10):
+    # Process a single status
+    process_or_store(status._json)
+
+
