@@ -19,4 +19,4 @@ for status in tweepy.Cursor(api.home_timeline).items(10):
     print(status.text) 
 '''
 for tweet in tweepy.Cursor(api.search, q="#sick", count=15, result_type="recent", include_entities=True, lang="en").items():
-	print (tweet)
+	print (json.dumps(tweet))
