@@ -16,10 +16,34 @@ api = tweepy.API(auth)
 for tweet in tweepy.Cursor(api.search, q="#sick", count=15, result_type="recent", include_entities=True, lang="en").items():
 	print (json.dumps(tweet))
 '''
+#open file
+locs = open('stream_kanye.txt', 'r')
+#empty list for cities
+cities = []
 
+#load cities into list
+for line in locs:
+        cities.append(line)
 
+#close file
+locs.close()
+
+#from the interwebs
 geolocator = Nominatim()
-cities = ["Pittsburgh", "Princeton", "Toronto"]
+
+#coordinates list
+coor = [] 
+
+w = open('geo_data.txt', 'w')
+
+#load geocode into coordinates
 for c in cities:
 	location = geolocator.geocode(c)
-	print((location.latitude, location.longitude))
+	#print((location.latitude, location.longitude))
+	coor.append((location.latitude, location.longitude))
+
+for c in coor:
+	w.write(str(c))
+
+w.close()
+
