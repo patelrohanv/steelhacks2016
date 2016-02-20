@@ -38,7 +38,7 @@ geolocator = Nominatim()
 #coordinates list
 coor = [] 
 
-w = open('geo_data.txt', 'w')
+w = open('geo_data.json', 'w')
 
 #load geocode into coordinates
 for c in cities:
