@@ -1,0 +1,16 @@
+Application Settings
+Keep the "Consumer Secret" a secret. This key should never be human-readable in your application.
+Consumer Key (API Key)	FKO8HPqgt7rJ0EYxQ5pGNYnOM
+Consumer Secret (API Secret)	Nhv0BOtTvEub1RD8LA5Azk3uZW8qn5PCgpnyD2BnYkfQ0m5mGr
+Access Level	Read and write (modify app permissions)
+Owner	guccimanesy
+Owner ID	1979407176
+Application Actions
+Regenerate Consumer Key and SecretChange App Permissions
+Your Access Token
+This access token can be used to make API requests on your own account's behalf. Do not share your access token secret with anyone.
+Access Token	1979407176-HJlgun5ty2DHwkV7tG6ErQuMNIAHsp66Q6cR5sl
+Access Token Secret	BU9a0YiJl9W4Xhj3H9Qg1Ypvu8Bn7NZCUTcRutr1FKJdH
+Access Level	Read and write
+Owner	guccimanesy
+Owner ID	1979407176
