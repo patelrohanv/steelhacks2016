@@ -5,6 +5,8 @@ import json
 from geopy.geocoders import Nominatim
 import geojson
 from geojson import Point
+from geopy.exc import GeocoderTimedOut
+
 
 '''
 consumer_key = 'FKO8HPqgt7rJ0EYxQ5pGNYnOM'
@@ -21,7 +23,7 @@ for tweet in tweepy.Cursor(api.search, q="#sick", count=15, result_type="recent"
     print (json.dumps(tweet))
 '''
 #open file
-locs = open('stream_kanye.txt', 'r')
+locs = open('stream_flu_more_data.txt', 'r')
 #empty list for cities
 cities = []
 
@@ -43,13 +45,16 @@ w = open('geo_data.json', 'w')
 #load geocode into coordinates
 for c in cities:
     location = geolocator.geocode(c)
-    point = Point((location.longitude, location.latitude))
-    print(point)
-    coor.append(point)
+    try:
+	    point = Point((location.longitude, location.latitude))
+	    print(point)
+	    coor.append(point)
+    except AttributeError, GeocoderTimedOut:
+    	pass
+
 
 for c in coor:
     w.write(str(c))
 
 
 w.close()
-
